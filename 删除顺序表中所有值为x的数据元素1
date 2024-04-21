@@ -1,0 +1,10 @@
+void del_x_1(SqList &L,ElemType x){
+    //本算法实现删除顺序表工中所有值为x的数据元素
+    int k=0,i;    //记录值不等于x的元素个数
+    for(i-0;i<L.length;i++)
+    	if(L.data[i]!=x){
+        	L.data[k]=L.data[i];
+        	k++;   			//不等于x的元素增1
+        }
+        L.length=k;			//顺序表的长度L等于k
+}
