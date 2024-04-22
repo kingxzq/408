@@ -1,0 +1,10 @@
+void del_x_2(SqList& L,ElemType x){
+	//k记录值等于x的元素个数
+    int k=0，i=0;
+    while(i<L.length){
+    if(L.data[i]==x)
+    	k++;
+    else
+        L.data[i-k]=.data[i];//当前元素前移k个位置i++;
+    L.length=L.length-k;     //顺序表L的长度递减
+}
