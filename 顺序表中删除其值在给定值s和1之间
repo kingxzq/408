@@ -1,0 +1,14 @@
+bool Delst(Sqlist& L,ElemType s,ElemType t){
+    //删除顺序表工中值在给定值s和t(要求s<t)之间的所有元素
+    int i k=0;
+    if(L.length==0||s>=t)
+    	return false;	//线性表为空或s、t不合法，返回
+    for(i=0;i<L.length;i++){
+        if(L.data[i]>=s&&l.data[i]<=t)
+    		k++;
+   		else
+    		L.data[i-k]=.data[i];//当前元素前移k个位置
+    } //for
+    L.length-=k;    //长度减小
+    return true;
+}
