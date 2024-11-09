@@ -1,0 +1,33 @@
+/**
+* 在回溯的时候，就判断回溯的当前节点的左右子树是否是一个高度平衡二叉树、左右子树的高度差是否大于1，
+*          如果左右子树都是一个高度平衡二叉树、且高度差小于等于1，则计算出当前节点的高度，继续回溯；
+*          否则，则直接返回-1；
+*/
+public int findHeightAndBalanced(TreeNode node) {
+	//公式：节点的高度= 左子树的高度 和 右子树的高度 的最大值+1;
+	if (node == null) {
+		  return 0;
+	}
+	//当前节点的左子树的高度：
+	int leftHeight = findHeightAndBalanced(node.left);
+	//当前节点的右子树的高度:
+	int rightHeight = findHeightAndBalanced(node.right);
+	//如果已经有某个部位的子树不平衡了，则整体便是不平衡；
+	//如果左右子树的高度差>1，则便是一个不平衡二叉树；
+	if (leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight-rightHeight)>1) {
+		  return -1;
+	}
+	//否则，才求出当前节点的高度：
+	int currHeight = Math.max(leftHeight,rightHeight) + 1;
+	return currHeight;
+}
+ 
+ 
+public boolean isBalanced(TreeNode root) {
+	int heightAndBalanced = findHeightAndBalanced(root);
+	if (heightAndBalanced == -1) {
+		  return false;
+	}else{
+		  return true;
+	}
+}
